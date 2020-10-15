@@ -14,5 +14,10 @@
 		WHERE id = #{id}
 	</select>
 
+	<select id="deleteArticleById">
+		DELETE FROM article
+		WHERE id = #{id}
+	</select>
+
 
 </mapper>
