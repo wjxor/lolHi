@@ -25,4 +25,13 @@ public class ArticleController {
 
 		return "usr/article/list";
 	}
+
+	@RequestMapping("/usr/article/detail")
+	public String showDetail(Model model, int id) {
+		Article article = articleService.getArticleById(id);
+
+		model.addAttribute("article", article);
+
+		return "usr/article/detail";
+	}
 }
