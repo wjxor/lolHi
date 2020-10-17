@@ -38,8 +38,17 @@ public class ArticleController {
 	@RequestMapping("/usr/article/doDelete")
 	@ResponseBody
 	public String doDelete(int id) {
-		Article article = articleService.deleteArticleById(id);
+		articleService.deleteArticleById(id);
 
 		return String.format("<script> alert('%d번 글을 삭제하였습니다.'); location.replace('/usr/article/list'); </script>", id);
+	}
+
+	@RequestMapping("/usr/article/doModify")
+	@ResponseBody
+	public String doModify(int id, String title, String body) {
+		articleService.modifyArticle(id, title, body);
+
+		return String.format(
+				"<script> alert('%d번 글을 수정하였습니다.'); location.replace('/usr/article/detail?id=%d'); </script>", id, id);
 	}
 }
