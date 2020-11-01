@@ -11,18 +11,26 @@
 
     <c:forEach items="${articles}" var="article">
         <div>
-            번호 : ${article.id}
+            번호 :
+            <a href="detail?id=${article.id}"></a>${article.id}
             <br />
             작성날짜 : ${article.regDate}
             <br />
             갱신날짜 : ${article.updateDate}
             <br />
-            제목 : ${article.title}
+            제목 :
+            <a href="detail?id=${article.id}"></a>${article.title}
             <br />
-            내용 : ${article.body}
+            작업 :
+            <a onclick="if ( confirm('삭제하시겠습니까?') == false) return false;" href="doDelete?id=${article.id}">삭제</a>
+            <a href="modify?id=${article.id}">수정</a>
         </div>
         <hr />
     </c:forEach>
+
+    <div>
+        <a href="write">글쓰기</a>
+    </div>
 
 
 
