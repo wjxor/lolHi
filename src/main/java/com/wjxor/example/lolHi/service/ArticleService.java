@@ -52,7 +52,7 @@ public class ArticleService {
 	public void modifyArticle(int id, String title, String body) {
 		articleDao.modifyArticle(id, title, body);
 
-	}
+	} 
 
 	public int writeArticle(Map<String, Object> param) {
 		articleDao.writeArticle(param);
@@ -60,6 +60,11 @@ public class ArticleService {
 		int id = Util.getAsInt(param.get("id"));
 
 		return id;
+	}
+
+	public int getTotalCount() {
+
+		return articleDao.getTotalCount();
 	}
 
 }

@@ -12,6 +12,11 @@
 		</if>
 	</select>
 
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*)
+		FROM article
+	</select>
+
 	<select id="getArticleById" resultType="Article">
 		SELECT *
 		FROM article
@@ -30,9 +35,8 @@
 			<if test="title != null">
 				title = #{title},
 			</if>
-
 			<if test="body != null">
-				`body` = #{body}
+				`body` = #{body},
 			</if>
 		</set>
 		WHERE id = #{id}
@@ -47,9 +51,8 @@
 			<if test="title != null">
 				title = #{title},
 			</if>
-
 			<if test="body != null">
-				`body` = #{body}
+				`body` = #{body},
 			</if>
 		</set>
 	</insert>

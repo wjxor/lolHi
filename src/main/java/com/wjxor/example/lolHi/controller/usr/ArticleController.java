@@ -23,6 +23,9 @@ public class ArticleController {
 	public String showList(Model model, @RequestParam Map<String, Object> param) {
 		List<Article> articles = articleService.getArticles(param);
 
+		int totalCount = articleService.getTotalCount();
+
+		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("articles", articles);
 
 		return "usr/article/list";
@@ -35,6 +38,14 @@ public class ArticleController {
 		model.addAttribute("article", article);
 
 		return "usr/article/detail";
+	}
+
+	@RequestMapping("/usr/article/detail2")
+	@ResponseBody
+	public Article showDetail2(Model model, int id) {
+		Article article = articleService.getArticleById(id);
+
+		return article;
 	}
 
 	@RequestMapping("/usr/article/doDelete")
@@ -65,7 +76,6 @@ public class ArticleController {
 
 	@RequestMapping("/usr/article/write")
 	public String showWrite() {
-
 		return "usr/article/write";
 	}
 
@@ -75,6 +85,6 @@ public class ArticleController {
 		int id = articleService.writeArticle(param);
 
 		return String.format(
-				"<script> alert('%d번 글이 생성되었습니다.'); location.replace('/usr/article/detail?id=%d'); </script>", id, id);
+				"<script> alert('%d번 글이 생성되였습니다.'); location.replace('/usr/article/detail?id=%d'); </script>", id, id);
 	}
 }
