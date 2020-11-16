@@ -1,6 +1,5 @@
 package com.wjxor.example.lolHi.service;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 
@@ -52,7 +51,7 @@ public class ArticleService {
 	public void modifyArticle(int id, String title, String body) {
 		articleDao.modifyArticle(id, title, body);
 
-	} 
+	}
 
 	public int writeArticle(Map<String, Object> param) {
 		articleDao.writeArticle(param);
